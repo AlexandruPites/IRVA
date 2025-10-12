@@ -5,4 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes: []
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 4eccd766220388246aa1fa47a8e5ca94, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 084acc422ada26d4a9e1838bb398d360, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 8c82261eb9ad2c149a0535e4a0fdd47a, type: 2}
+  m_UseUCBPForAssetBundles: 0
