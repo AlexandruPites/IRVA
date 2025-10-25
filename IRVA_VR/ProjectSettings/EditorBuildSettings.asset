@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.30.0/Hello Cardboard/Scenes/HelloCardboard.unity
     guid: 03c48c5e809944fa4afcae9973709f26
-  - enabled: 1
+  - enabled: 0
     path: Assets/L1_VR_GoogleCardboard/Scenes/L1_VR_GoogleCardboard_BalloonPopper.unity
     guid: dc2b59be1a27f594ea1b880cd89069e4
+  - enabled: 1
+    path: Assets/L2_VR_SteamVR_Basics/Scenes/L2_VR_SteamVR_Sandbox.unity
+    guid: 7ce99e9eca8f61349a8ed928f5dbb46c
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 4eccd766220388246aa1fa47a8e5ca94, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 084acc422ada26d4a9e1838bb398d360, type: 2}
