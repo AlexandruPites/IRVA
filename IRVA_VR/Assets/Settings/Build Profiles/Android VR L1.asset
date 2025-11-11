@@ -18,11 +18,14 @@ MonoBehaviour:
   m_PlatformId: b9b35072a6f44c2e863f17467ea3dc13
   m_PlatformBuildProfile:
     rid: 5635589204021084162
-  m_OverrideGlobalSceneList: 0
+  m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.30.0/Hello Cardboard/Scenes/HelloCardboard.unity
-  m_ScriptingDefines: []
+  - m_enabled: 1
+    m_path: "Assets/Samples/Meta XR Interaction \u200BSDK/78.0.0/Example Scenes/ComprehensiveRigExample.unity"
+  m_ScriptingDefines:
+  - 
   m_PlayerSettingsYaml:
     m_Settings:
     - line: '| PlayerSettings:'
@@ -71,7 +74,7 @@ MonoBehaviour:
     - line: '|   defaultScreenHeight: 768'
     - line: '|   defaultScreenWidthWeb: 960'
     - line: '|   defaultScreenHeightWeb: 600'
-    - line: '|   m_StereoRenderingPath: 0'
+    - line: '|   m_StereoRenderingPath: 2'
     - line: '|   m_ActiveColorSpace: 1'
     - line: '|   unsupportedMSAAFallback: 0'
     - line: '|   m_SpriteBatchMaxVertexCount: 65535'
@@ -168,7 +171,17 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 0.0.1'
-    - line: '|   preloadedAssets: []'
+    - line: '|   preloadedAssets:'
+    - line: '|   - {fileID: 11400000, guid: 1def40a1065658647ae7d7f00bcdfc47, type:
+        2}'
+    - line: '|   - {fileID: -9100861402374763630, guid: 084acc422ada26d4a9e1838bb398d360,
+        type: 2}'
+    - line: '|   - {fileID: 11400000, guid: 8c82261eb9ad2c149a0535e4a0fdd47a, type:
+        2}'
+    - line: '|   - {fileID: -2057349393743036560, guid: 4404ae5a188b6954ebd9fab1fd833656,
+        type: 2}'
+    - line: '|   - {fileID: 11400000, guid: 1a8bac9472f0e8941a166b867cce3783, type:
+        2}'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
@@ -199,9 +212,9 @@ MonoBehaviour:
     - line: '|     tvOS: 0'
     - line: '|   overrideDefaultApplicationIdentifier: 0'
     - line: '|   AndroidBundleVersionCode: 1'
-    - line: '|   AndroidMinSdkVersion: 26'
-    - line: '|   AndroidTargetSdkVersion: 35'
-    - line: '|   AndroidPreferredInstallLocation: 1'
+    - line: '|   AndroidMinSdkVersion: 32'
+    - line: '|   AndroidTargetSdkVersion: 32'
+    - line: '|   AndroidPreferredInstallLocation: 0'
     - line: '|   aotOptions: '
     - line: '|   stripEngineCode: 1'
     - line: '|   iPhoneStrippingLevel: 0'
@@ -549,7 +562,7 @@ MonoBehaviour:
     - line: '|   - m_BuildTarget: LuminSupport'
     - line: '|     m_GraphicsJobs: 0'
     - line: '|   - m_BuildTarget: AndroidPlayer'
-    - line: '|     m_GraphicsJobs: 0'
+    - line: '|     m_GraphicsJobs: 1'
     - line: '|   - m_BuildTarget: WebGLSupport'
     - line: '|     m_GraphicsJobs: 0'
     - line: '|   m_BuildTargetGraphicsJobMode:'
@@ -557,6 +570,8 @@ MonoBehaviour:
     - line: '|     m_GraphicsJobMode: 0'
     - line: '|   - m_BuildTarget: XboxOnePlayer'
     - line: '|     m_GraphicsJobMode: 0'
+    - line: '|   - m_BuildTarget: AndroidPlayer'
+    - line: '|     m_GraphicsJobMode: 1'
     - line: '|   m_BuildTargetGraphicsAPIs:'
     - line: '|   - m_BuildTarget: AndroidPlayer'
     - line: '|     m_APIs: 15000000'
@@ -888,7 +903,7 @@ MonoBehaviour:
     - line: '|   webWasm2023: 0'
     - line: '|   webEnableSubmoduleStrippingCompatibility: 0'
     - line: '|   scriptingDefineSymbols:'
-    - line: '|     Android: DOTWEEN;UNITY_XR_MANAGEMENT'
+    - line: '|     Android: DOTWEEN;UNITY_XR_MANAGEMENT;USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS'
     - line: '|     EmbeddedLinux: DOTWEEN'
     - line: '|     GameCoreScarlett: DOTWEEN'
     - line: '|     GameCoreXboxOne: DOTWEEN'
@@ -898,10 +913,10 @@ MonoBehaviour:
     - line: '|     PS5: DOTWEEN'
     - line: '|     QNX: DOTWEEN'
     - line: '|     Stadia: DOTWEEN'
-    - line: '|     Standalone: DOTWEEN;UNITY_XR_MANAGEMENT'
+    - line: '|     Standalone: DOTWEEN;UNITY_XR_MANAGEMENT;USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS'
     - line: '|     VisionOS: DOTWEEN'
     - line: '|     WebGL: DOTWEEN'
-    - line: '|     Windows Store Apps: DOTWEEN'
+    - line: '|     Windows Store Apps: DOTWEEN;USE_INPUT_SYSTEM_POSE_CONTROL;USE_STICK_CONTROL_THUMBSTICKS'
     - line: '|     XboxOne: DOTWEEN'
     - line: '|     iPhone: DOTWEEN;UNITY_XR_MANAGEMENT'
     - line: '|     tvOS: DOTWEEN'

@@ -1,3 +1,4 @@
+#if UNITY_STANDALONE 
 using System;
 using UnityEngine;
 using Valve.VR;
@@ -44,3 +45,4 @@ namespace L3_VR_SteamVR_Advanced.Scripts.Input
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if UNITY_STANDALONE
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -278,3 +279,4 @@ namespace L3_VR_SteamVR_Advanced.Scripts.GravityGun
         }
     }
 }
+#endif

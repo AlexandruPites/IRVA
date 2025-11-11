@@ -15,7 +15,10 @@ EditorBuildSettings:
     path: Assets/L2_VR_SteamVR_Basics/Scenes/L2_VR_SteamVR_Sandbox.unity
     guid: 7ce99e9eca8f61349a8ed928f5dbb46c
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa1fa8e1453284f43ac8cbeacd290e27, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 4eccd766220388246aa1fa47a8e5ca94, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 1a8bac9472f0e8941a166b867cce3783, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 084acc422ada26d4a9e1838bb398d360, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4404ae5a188b6954ebd9fab1fd833656, type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 8c82261eb9ad2c149a0535e4a0fdd47a, type: 2}
   m_UseUCBPForAssetBundles: 0
