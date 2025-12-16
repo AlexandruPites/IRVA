@@ -34,9 +34,9 @@ namespace ProjectSetup.CustomXRPluginProvider.Scripts.Editor
 
         public static readonly List<string> AllXRLoaders = new()
         {
-            XR_CRDBRD_LOADER,
             XR_OPENVR_LOADER,
             XR_OPENXR_LOADER,
+            XR_CRDBRD_LOADER,
         };
     
         public enum TargetVR
@@ -52,7 +52,7 @@ namespace ProjectSetup.CustomXRPluginProvider.Scripts.Editor
             var guids = AssetDatabase.FindAssets(filter);
             if (guids.Length == 0)
             {
-                // Debug.LogError($"[Utils] GUIDs not found for filter: {filter}");
+                // Debug.LogError($"[EnvironmentHandler] GUIDs not found for filter: {filter}");
                 return null;
             }
             

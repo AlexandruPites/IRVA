@@ -83,7 +83,7 @@ namespace ProjectSetup.CustomXRPluginProvider.Scripts.Editor
         }
         
         [MenuItem("XR Loader Settings/Refresh [reapply current settings]", priority = 40)]
-        private static void RefreshPluginProvider()
+        private static void RefreshPluginProviderSettings()
         {
             SetupAllXRPluginProviderSettings();
             SaveScriptableObjects();
@@ -177,7 +177,7 @@ namespace ProjectSetup.CustomXRPluginProvider.Scripts.Editor
                 return;
             }
             
-            // Clear all loaders first, regardless of what we're setting next.
+            // Clear all loaders first, regardless of what we're setting
             Utils.AllXRLoaders.ForEach(RemoveLoader);
             
             if (!loaders.TryGetValue(pluginProviderData.TargetVR, out var requiredLoader) || requiredLoader == null)
