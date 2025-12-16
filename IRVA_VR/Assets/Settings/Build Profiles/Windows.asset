@@ -21,10 +21,6 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 0
-    m_path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.30.0/Hello Cardboard/Scenes/HelloCardboard.unity
-  - m_enabled: 0
-    m_path: Assets/L1_VR_GoogleCardboard/Scenes/L1_VR_GoogleCardboard_BalloonPopper.unity
-  - m_enabled: 0
     m_path: Assets/L2_VR_SteamVR_Basics/Scenes/L2_VR_SteamVR_Sandbox.unity
   - m_enabled: 1
     m_path: Assets/Scenes/RoomScene.unity
