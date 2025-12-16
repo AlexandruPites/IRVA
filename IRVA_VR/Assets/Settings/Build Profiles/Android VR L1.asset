@@ -19,11 +19,7 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 5635589204021084162
   m_OverrideGlobalSceneList: 1
-  m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.30.0/Hello Cardboard/Scenes/HelloCardboard.unity
-  - m_enabled: 1
-    m_path: "Assets/Samples/Meta XR Interaction \u200BSDK/78.0.0/Example Scenes/ComprehensiveRigExample.unity"
+  m_Scenes: []
   m_ScriptingDefines:
   - 
   m_PlayerSettingsYaml:

@@ -9,3 +9,5 @@ IRVA_VR/Assets/XR/Settings/OpenVRSettings.asset
 IRVA_VR/Assets/XR/Settings/OpenXRPackageSettings.asset
 IRVA_VR/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
 IRVA_VR/Assets/XR/XRGeneralSettingsPerBuildTarget.asset
+IRVA_VR/Assets/Settings/Build Profiles/Android VR L1.asset
+IRVA_VR/Assets/Settings/Build Profiles/Meta Quest.asset
