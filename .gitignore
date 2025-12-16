@@ -1,1 +1,11 @@
 /IRVA_AR/Assets/UnityXRContent/ARFoundation/SimulationEnvironments
+IRVA_VR/Assets/ProjectSetup/CustomXRPluginProvider/Data/XRPluginProviderControllerData.asset
+IRVA_VR/Assets/ProjectSetup/CustomXRPluginProvider/Scripts/Editor/Utils.cs
+IRVA_VR/Assets/ProjectSetup/CustomXRPluginProvider/Scripts/Editor/XRPluginProviderController.cs
+IRVA_VR/Assets/Resources/DOTweenSettings.asset
+IRVA_VR/Assets/SteamVR_Resources/Resources/SteamVR_Settings.asset
+IRVA_VR/Assets/SteamVR_Resources/Resources/SteamVR_Settings.asset.meta
+IRVA_VR/Assets/XR/Settings/OpenVRSettings.asset
+IRVA_VR/Assets/XR/Settings/OpenXRPackageSettings.asset
+IRVA_VR/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+IRVA_VR/Assets/XR/XRGeneralSettingsPerBuildTarget.asset
