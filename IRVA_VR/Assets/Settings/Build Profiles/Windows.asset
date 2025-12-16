@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Meta Quest
+  m_Name: Windows
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfile
   m_AssetVersion: 1
-  m_BuildTarget: 13
-  m_Subtarget: 0
-  m_PlatformId: 80657fe557de4d17822398b3a01b8c9e
+  m_BuildTarget: 19
+  m_Subtarget: 2
+  m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
-    rid: 6776796648248443107
+    rid: 6776796113019600896
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 0
-    m_path: "Assets/Samples/Meta XR Interaction \u200BSDK/78.0.0/Example Scenes/ComprehensiveRigExample.unity"
+    m_path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.30.0/Hello Cardboard/Scenes/HelloCardboard.unity
+  - m_enabled: 0
+    m_path: Assets/L1_VR_GoogleCardboard/Scenes/L1_VR_GoogleCardboard_BalloonPopper.unity
+  - m_enabled: 0
+    m_path: Assets/L2_VR_SteamVR_Basics/Scenes/L2_VR_SteamVR_Sandbox.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/RoomScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -168,9 +174,7 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 0.0.1'
-    - line: '|   preloadedAssets:'
-    - line: '|   - {fileID: 11400000, guid: 1def40a1065658647ae7d7f00bcdfc47, type:
-        2}'
+    - line: '|   preloadedAssets: []'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
@@ -201,8 +205,8 @@ MonoBehaviour:
     - line: '|     tvOS: 0'
     - line: '|   overrideDefaultApplicationIdentifier: 0'
     - line: '|   AndroidBundleVersionCode: 1'
-    - line: '|   AndroidMinSdkVersion: 34'
-    - line: '|   AndroidTargetSdkVersion: 34'
+    - line: '|   AndroidMinSdkVersion: 32'
+    - line: '|   AndroidTargetSdkVersion: 32'
     - line: '|   AndroidPreferredInstallLocation: 0'
     - line: '|   aotOptions: '
     - line: '|   stripEngineCode: 1'
@@ -551,7 +555,7 @@ MonoBehaviour:
     - line: '|   - m_BuildTarget: LuminSupport'
     - line: '|     m_GraphicsJobs: 0'
     - line: '|   - m_BuildTarget: AndroidPlayer'
-    - line: '|     m_GraphicsJobs: 1'
+    - line: '|     m_GraphicsJobs: 0'
     - line: '|   - m_BuildTarget: WebGLSupport'
     - line: '|     m_GraphicsJobs: 0'
     - line: '|   m_BuildTargetGraphicsJobMode:'
@@ -559,8 +563,6 @@ MonoBehaviour:
     - line: '|     m_GraphicsJobMode: 0'
     - line: '|   - m_BuildTarget: XboxOnePlayer'
     - line: '|     m_GraphicsJobMode: 0'
-    - line: '|   - m_BuildTarget: AndroidPlayer'
-    - line: '|     m_GraphicsJobMode: 1'
     - line: '|   m_BuildTargetGraphicsAPIs:'
     - line: '|   - m_BuildTarget: AndroidPlayer'
     - line: '|     m_APIs: 15000000'
@@ -911,8 +913,7 @@ MonoBehaviour:
     - line: '|     tvOS: DOTWEEN'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
-    - line: '|   scriptingBackend:'
-    - line: '|     Android: 1'
+    - line: '|   scriptingBackend: {}'
     - line: '|   il2cppCompilerConfiguration: {}'
     - line: '|   il2cppCodeGeneration: {}'
     - line: '|   il2cppStacktraceInformation: {}'
@@ -1022,7 +1023,7 @@ MonoBehaviour:
     - line: '|   qnxGraphicConfPath: '
     - line: '|   apiCompatibilityLevel: 6'
     - line: '|   captureStartupLogs: {}'
-    - line: '|   activeInputHandler: 1'
+    - line: '|   activeInputHandler: 2'
     - line: '|   windowsGamepadBackendHint: 0'
     - line: '|   cloudProjectId: '
     - line: '|   framebufferDepthMemorylessMode: 0'
@@ -1042,8 +1043,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 6776796648248443107
-      type: {class: AndroidPlatformBuildSettings, ns: UnityEditor.Android, asm: UnityEditor.Android.Extensions}
+    - rid: 6776796113019600896
+      type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:
         m_Development: 0
         m_ConnectProfiler: 0
@@ -1054,39 +1055,13 @@ MonoBehaviour:
         m_ExplicitNullChecks: 0
         m_ExplicitDivideByZeroChecks: 0
         m_ExplicitArrayBoundsChecks: 0
-        m_CompressionType: 2
+        m_CompressionType: 0
         m_InstallInBuildFolder: 0
         m_InsightsSettingsContainer:
           m_BuildProfileEngineDiagnosticsState: 2
-        m_BuildSubtarget: 0
-        m_BuildSystem: 1
-        m_ExportAsGoogleAndroidProject: 0
-        m_DebugSymbolLevel: 1
-        m_DebugSymbolFormat: 5
-        m_CurrentDeploymentTargetId: __builtin__target_default
-        m_BuildType: 2
-        m_LinkTimeOptimization: 0
-        m_BuildAppBundle: 0
-        m_IPAddressToConnect: 
-        m_SymlinkSources: 0
---- !u!114 &8238142307848189284
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 15010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Quality Settings
-  m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfileQualitySettings
-  m_DefaultQualityLevel: Meta Quest (Build Profile)
-  m_QualityLevels:
-  - Very Low
-  - Low
-  - Medium
-  - High
-  - Very High
-  - Ultra
-  - Meta Quest (Build Profile)
+        m_WindowsBuildAndRunDeployTarget: 0
+        m_Architecture: 0
+        m_CreateSolution: 0
+        m_CopyPDBFiles: 0
+        m_WindowsDevicePortalAddress: 
+        m_WindowsDevicePortalUsername: 
