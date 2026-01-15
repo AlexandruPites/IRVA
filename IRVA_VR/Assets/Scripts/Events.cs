@@ -6,6 +6,9 @@ namespace System.Runtime.CompilerServices
 }
 
 public record LockUnlocked(string lockTag);
+
+public record DrawerOpened(string drawerTag);
+public record DrawerClosed(string drawerTag);
 public record FirstPuzzleFinished;
 public record FirstPuzzleButtonPressed(int Number);
 

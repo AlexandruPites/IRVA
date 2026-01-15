@@ -8,7 +8,7 @@ public class LockController : MonoBehaviour
     [SerializeField] private string collision_tag = "Key";
     [SerializeField] private bool destroyOnUse = false;
     [SerializeField] private float turnDuration = 0.5f;
-    [SerializeField] private string puzzleTag;
+    [SerializeField] public string puzzleTag;
 
     [SerializeField] private Collider collider;
     [SerializeField] private Transform attachPosition;
@@ -20,6 +20,12 @@ public class LockController : MonoBehaviour
     private void Start()
     {
         colorCube.material = initialMaterial;
+    }
+
+    public void SetUpLock(string key, Material material)
+    {
+        puzzleTag = key + "_puzzle_3";
+        colorCube.material = material;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -86,7 +92,7 @@ public class LockController : MonoBehaviour
         
         EventBus.Instance.Broadcast(new LockUnlocked(puzzleTag));
 
-        correctDisplayCube.material = initialMaterial;
+        correctDisplayCube.material = colorCube.material;
 
         if (destroyOnUse)
         {
