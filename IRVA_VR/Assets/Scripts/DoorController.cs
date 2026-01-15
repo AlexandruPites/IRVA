@@ -10,7 +10,10 @@ public class DoorController : MonoBehaviour
 
     [SerializeField] private int maxCounter = 6;
 
+    private List<bool> isFinished = new List<bool>(new bool[6]);
     private int counter = 0;
+    
+    
     
     private void OnEnable()
     {
@@ -34,55 +37,67 @@ public class DoorController : MonoBehaviour
 
     private void OnFirst(FirstPuzzleFinished e)
     {
-        if (keyholes[0].material != finished)
+        if (!isFinished[0])
         {
             CheckCounter();
         }
+
+        isFinished[0] = true;
         keyholes[0].material = finished;
     }
 
     private void OnSecond(SecondPuzzleFinished e)
     {
-        if (keyholes[1].material != finished)
+        if (!isFinished[1])
         {
             CheckCounter();
         }
+        
+        isFinished[1] = true;
         keyholes[1].material = finished;
     }
 
     private void OnThird(ThirdPuzzleFinished e)
     {
-        if (keyholes[2].material != finished)
+        if (!isFinished[2])
         {
             CheckCounter();
         }
+        
+        isFinished[2] = true;
         keyholes[2].material = finished;
     }
 
     private void OnFourth(FourthPuzzleFinished e)
     {
-        if (keyholes[3].material != finished)
+        if (!isFinished[3])
         {
             CheckCounter();
         }
+        
+        isFinished[3] = true;
         keyholes[3].material = finished;
     }
 
     private void OnFifth(FifthPuzzleFinished e)
     {
-        if (keyholes[4].material != finished)
+        if (!isFinished[4])
         {
             CheckCounter();
         }
+        
+        isFinished[4] = true;
         keyholes[4].material = finished;
     }
 
     private void OnSixth(SixthPuzzleFinished e)
     {
-        if (keyholes[5].material != finished)
+        if (!isFinished[5])
         {
             CheckCounter();
         }
+        
+        isFinished[5] = true;
         keyholes[5].material = finished;
     }
 

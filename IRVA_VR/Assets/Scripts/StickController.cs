@@ -68,7 +68,7 @@ public class StickController : MonoBehaviour
 
     void PuzzleComplete()
     {
-        EventBus.Instance.Broadcast(new SixthPuzzleFinished());
+        EventBus.Instance.Broadcast(new FourthPuzzleFinished());
         goal.SetActive(false);
     }
 }
