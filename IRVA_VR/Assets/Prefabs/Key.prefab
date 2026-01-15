@@ -231,6 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3439546245628672440}
+  - component: {fileID: 5643910729913669884}
   - component: {fileID: 1802190014075594517}
   - component: {fileID: 9192717911589016041}
   - component: {fileID: 5112570345908746965}
@@ -264,6 +265,21 @@ Transform:
   - {fileID: 7591728110067691036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5643910729913669884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712848352521594264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906bcdca18fd0224fa03dd13562fc067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  puzzleTag: 
+  initialMaterial: {fileID: 2100000, guid: 23c5d4c7719fa9d4f90249ee1c83e97c, type: 2}
+  renderer: {fileID: 2056869229982243218}
 --- !u!114 &1802190014075594517
 MonoBehaviour:
   m_ObjectHideFlags: 0

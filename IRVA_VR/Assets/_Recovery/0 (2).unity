@@ -2173,14 +2173,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5743089907595004946, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
-      propertyPath: puzzleTag
-      value: test
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743089907595004946, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
-      propertyPath: puzzle_tag
-      value: test
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743089907595004946, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: destroyOnUse
       value: 0
       objectReference: {fileID: 0}
@@ -2355,10 +2347,6 @@ PrefabInstance:
     - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_Name
       value: Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643910729913669884, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
-      propertyPath: puzzleTag
-      value: test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

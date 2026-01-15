@@ -5,6 +5,7 @@ namespace System.Runtime.CompilerServices
     internal static class IsExternalInit {}
 }
 
+public record LockUnlocked(string lockTag);
 public record FirstPuzzleFinished;
 public record FirstPuzzleButtonPressed(int Number);
 
