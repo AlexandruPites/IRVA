@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 9192717911589016041}
   - component: {fileID: 5112570345908746965}
   - component: {fileID: 8931810462755252798}
+  - component: {fileID: 1487985584643859959}
   m_Layer: 0
   m_Name: Key
   m_TagString: Key
@@ -278,7 +279,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   puzzleTag: 
-  initialMaterial: {fileID: 2100000, guid: 23c5d4c7719fa9d4f90249ee1c83e97c, type: 2}
   renderer: {fileID: 2056869229982243218}
 --- !u!114 &1802190014075594517
 MonoBehaviour:
@@ -396,6 +396,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 0.125, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1487985584643859959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712848352521594264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace57915d0be1eb4abc72c1eaffe9bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pickupable
+  activeInventory: {fileID: 0}
+  isPicked: 0
+  scaleMultiplier: 2
+  savedScale: {x: 0, y: 0, z: 0}
+  savedParent: {fileID: 0}
 --- !u!1 &5079942793984700220
 GameObject:
   m_ObjectHideFlags: 0

@@ -346,6 +346,8 @@ GameObject:
   - component: {fileID: 9064955920654427590}
   - component: {fileID: 1918179386442678623}
   - component: {fileID: 6571879715228471783}
+  - component: {fileID: 8704986081465928488}
+  - component: {fileID: 619847681895183993}
   m_Layer: 0
   m_Name: Tablet
   m_TagString: Untagged
@@ -499,6 +501,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8704986081465928488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844781464160067994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace57915d0be1eb4abc72c1eaffe9bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pickupable
+  activeInventory: {fileID: 0}
+  isPicked: 0
+  scaleMultiplier: 1
+  savedScale: {x: 0, y: 0, z: 0}
+  savedParent: {fileID: 0}
+--- !u!65 &619847681895183993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844781464160067994}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9167739, y: 0.12507701, z: 0.64204615}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2617638516925746686
 GameObject:
   m_ObjectHideFlags: 0
