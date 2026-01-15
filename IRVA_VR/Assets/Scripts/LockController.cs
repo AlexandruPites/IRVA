@@ -14,13 +14,6 @@ public class LockController : MonoBehaviour
     [SerializeField] private Transform attachPosition;
     [SerializeField] private MeshRenderer colorCube;
     [SerializeField] private MeshRenderer correctDisplayCube;
-    
-    [SerializeField] private Material initialMaterial;
-
-    private void Start()
-    {
-        colorCube.material = initialMaterial;
-    }
 
     public void SetUpLock(string key, Material material)
     {
