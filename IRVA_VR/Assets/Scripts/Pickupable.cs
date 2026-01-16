@@ -5,7 +5,7 @@ public class Pickupable : MonoBehaviour
 {
     public FloatingInventory activeInventory;
     public bool isPicked = false;
-    public float scaleMultiplier;
+    public float scaleMultiplier = 1f;
     public Vector3 savedScale;
     public Transform savedParent;
 

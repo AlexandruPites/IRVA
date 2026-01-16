@@ -8,8 +8,6 @@ public class Tablet : MonoBehaviour
 
     public void SetUpTablet(List<Material> lockMaterials, List<Material> keysMaterial)
     {
-        print(lockMaterials);
-        print(keysMaterial);
         for (int i = 0; i < locks.Count; i++)
         {
             locks[i].material = lockMaterials[i];
