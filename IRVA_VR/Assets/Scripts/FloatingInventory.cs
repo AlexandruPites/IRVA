@@ -88,7 +88,7 @@ public class FloatingInventory : MonoBehaviour
         if (rb)
         {
             rb.isKinematic = true;
-            rb.useGravity = false;
+            //rb.useGravity = false; Face bug la JJ :(
         }
 
         Pickupable listener = item.GetComponent<Pickupable>();

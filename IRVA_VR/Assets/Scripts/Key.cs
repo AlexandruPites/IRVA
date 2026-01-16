@@ -12,4 +12,9 @@ public class Key : MonoBehaviour
         puzzleTag = key + "_puzzle_3";
         renderer.material = material;
     }
+    
+    public void SetUpKey(string key)
+    {
+        puzzleTag = key + "_puzzle_4";
+    }
 }

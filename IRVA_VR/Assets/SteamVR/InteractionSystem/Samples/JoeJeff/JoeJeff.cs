@@ -102,9 +102,13 @@ namespace Valve.VR.InteractionSystem.Sample
 
                     // adding a little downward force to keep him on the floor
                     animationDelta.y += -0.2f;// rb.velocity.y;
-                    rigidbody.linearVelocity = animationDelta;
+
+                    if (!rigidbody.isKinematic)
+                    {
+                        rigidbody.linearVelocity = animationDelta;
+                    }
                 }
-                else
+                else if (!rigidbody.isKinematic)
                 {
                     rigidbody.linearVelocity += input * Time.deltaTime * airControl;
                 }
@@ -206,7 +210,11 @@ namespace Valve.VR.InteractionSystem.Sample
             rigidbody.position += Vector3.up * 0.03f;
             Vector3 velocity = rigidbody.linearVelocity;
             velocity.y = jumpVelocity;
-            rigidbody.linearVelocity = velocity;
+
+            if (!rigidbody.isKinematic)
+            {
+                rigidbody.linearVelocity = velocity; 
+            }
         }
     }
 }

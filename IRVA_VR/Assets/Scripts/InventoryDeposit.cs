@@ -22,6 +22,11 @@ public class InventoryDeposit : MonoBehaviour
        HandleDeposit(other);
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        HandleDeposit(other.collider);
+    }
+
     private void HandleDeposit(Collider other)
     {
         if (other.gameObject.TryGetComponent(out Pickupable pick))

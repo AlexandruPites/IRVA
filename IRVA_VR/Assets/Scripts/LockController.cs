@@ -20,6 +20,11 @@ public class LockController : MonoBehaviour
         puzzleTag = key + "_puzzle_3";
         colorCube.material = material;
     }
+    
+    public void SetUpLock(string key)
+    {
+        puzzleTag = key + "_puzzle_4";
+    }
 
     private void OnTriggerEnter(Collider other)
     {
