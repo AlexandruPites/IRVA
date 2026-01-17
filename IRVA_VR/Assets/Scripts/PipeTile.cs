@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PipeTile : MonoBehaviour
 {
-    private List<int> directions;
+    public List<int> directions;
     
     public static readonly List<(int x, int y)> Offsets =
         new()

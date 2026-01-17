@@ -18,6 +18,8 @@ public class PipeGridManager : MonoBehaviour
     private float _baseValveRotation;
     public GameObject junctionPipe;
     public GameObject straightPipe;
+    public Material NormalMaterial;
+    public Material CorrectMaterial;
     
     private void Awake()
     {
@@ -67,10 +69,19 @@ public class PipeGridManager : MonoBehaviour
             
             selectedTile.transform.localRotation = newRotation;
             _baseValveRotation = linearMappingAngular.value;
+            
+            ClearColors();
+            VerifySolution(0, 0, 1, (4, 5));
         }
     }
-    
-    
+
+    private void ClearColors()
+    {
+        foreach (var tile in tiles)
+        {
+            DeColorConnectedPath(tile);
+        }
+    }
 
     private int GetClosestIndexInRange(int segmentCount, float linearMapping)
     {
@@ -142,5 +153,73 @@ public class PipeGridManager : MonoBehaviour
             
         }
         
+    }
+
+    private bool VerifySolution(int row, int column, int entryDirection, (int x, int y) goal)
+    {
+
+        if (row == goal.x && column == goal.y)
+        {
+            return true;
+        }
+
+        if (row < 0 || row > 4 || column < 0 || column > 4)
+        {
+            return false;
+        }
+        
+        var tile = tiles[5 * row + column];
+        var pt = tile.GetComponent<PipeTile>();
+        
+        int requiredDirection = (entryDirection + 2) % 4;
+        bool canEnter = false;
+        
+        foreach (var direction in pt.directions)
+        {
+            if (direction == requiredDirection)
+            {
+                canEnter = true;
+            }
+        }
+
+        if (!canEnter)
+        {
+            return false;
+        }
+        
+        ColorConnectedPath(tile);
+        
+        foreach (var direction in pt.directions)
+        {
+            if (direction != requiredDirection)
+            {
+                var offsets = PipeTile.Offsets[direction];
+                int nextRow = row + offsets.x;
+                int nextColumn = column + offsets.y;
+                return VerifySolution(nextRow, nextColumn, direction, goal);
+            }
+        }
+
+        return false;
+    }
+
+    private void ColorConnectedPath(GameObject tile)
+    {
+        var existingRenderers = tile.GetComponentsInChildren<MeshRenderer>();
+        
+        foreach (var renderer in existingRenderers)
+        {
+            renderer.material = CorrectMaterial;
+        }
+    }
+    
+    private void DeColorConnectedPath(GameObject tile)
+    {
+        var existingRenderers = tile.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (var renderer in existingRenderers)
+        {
+            renderer.material = NormalMaterial;
+        }
     }
 }

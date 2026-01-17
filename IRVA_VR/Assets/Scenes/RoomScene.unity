@@ -803,6 +803,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1234730471}
     - target: {fileID: 6856530535138424935, guid: d42ff092a9e2aa346a7b8715fa861cdb, type: 3}
+      propertyPath: NormalMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 07bcd4e0597eb0648b7a45624f2e0594, type: 2}
+    - target: {fileID: 6856530535138424935, guid: d42ff092a9e2aa346a7b8715fa861cdb, type: 3}
+      propertyPath: CorrectMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dc58e1e69e93e5488ebb727f93b2b39, type: 2}
+    - target: {fileID: 6856530535138424935, guid: d42ff092a9e2aa346a7b8715fa861cdb, type: 3}
       propertyPath: linearMappingAngular
       value: 
       objectReference: {fileID: 1866100183}
@@ -6285,16 +6293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4ebe0795f56c45ba7bece36978cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FourthPuzzleManager
-  keys:
-  - {fileID: 1572298184}
-  - {fileID: 592777483}
-  - {fileID: 596074458}
-  lok: {fileID: 2083042878}
-  hintTexts:
-  - {fileID: 1029320400}
-  - {fileID: 562776193}
-  - {fileID: 1355830479}
-  rulesText: {fileID: 986688681}
 --- !u!4 &1311163596
 Transform:
   m_ObjectHideFlags: 0
@@ -8955,6 +8953,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0756a6c93cdbe85448aef40794e5d03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FifthPuzzleManager
+  keys:
+  - {fileID: 1572298184}
+  - {fileID: 592777483}
+  - {fileID: 596074458}
+  lok: {fileID: 2083042878}
+  hintTexts:
+  - {fileID: 1029320400}
+  - {fileID: 562776193}
+  - {fileID: 1355830479}
+  rulesText: {fileID: 986688681}
 --- !u!4 &1930524851
 Transform:
   m_ObjectHideFlags: 0
