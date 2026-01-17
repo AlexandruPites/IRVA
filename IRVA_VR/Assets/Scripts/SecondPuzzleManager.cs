@@ -157,8 +157,6 @@ public class SecondPuzzleManager : MonoBehaviour
     {
         foreach (var row in data)
         {
-            // Transform spawnPoint = cabinet.drawers[0].root;
-
             MathShapes left = SpawnerManager.Instance.YeetItem(shapeDict[row.leftShape], spawnContainerTag);
             left.SetUpShape(row.valueLeft.ToString(), colorDict[row.leftColor]);
             left.transform.localScale = Vector3.one * 0.05f;

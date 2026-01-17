@@ -52,6 +52,7 @@ public class SpawnerManager : MonoBehaviour
 
     public T YeetItem<T>(T prefab, string tag = null) where T : UnityEngine.Object
     {
+        // This should not be modified to preserve compatibility with Instantiate
         Transform spawnTransform = RequestSpawnPoint(tag);
         T newInstance = Instantiate(prefab, spawnTransform);
         return newInstance;
