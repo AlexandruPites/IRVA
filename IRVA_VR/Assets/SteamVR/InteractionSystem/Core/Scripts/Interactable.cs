@@ -367,5 +367,15 @@ namespace Valve.VR.InteractionSystem
             if (highlightHolder != null)
                 Destroy(highlightHolder);
         }
+
+        public void HighlightOverrride(Hand hand)
+        {
+            OnHandHoverBegin(hand);
+        }
+        
+        public void DeHighlightOverrride(Hand hand)
+        {
+            OnHandHoverEnd(hand);
+        }
     }
 }
