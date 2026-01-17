@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class MathTablet : MonoBehaviour
@@ -27,6 +28,8 @@ public class MathTablet : MonoBehaviour
     private Dictionary<string, GameObject> symbolDict = new();
     private Dictionary<string, Material> colorDict = new();
 
+    private List<GameObject> objects = new();
+
     private void Awake()
     {
         for (int i = 0; i < symbolNames.Count; i++)
@@ -45,9 +48,14 @@ public class MathTablet : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void DestroyAllObjects()
     {
+        foreach (var obj in objects)
+        {
+            Destroy(obj);
+        }
         
+        objects.Clear();
     }
 
     public void SetUpMathTablet(List<RowData> data)
@@ -64,6 +72,10 @@ public class MathTablet : MonoBehaviour
             GameObject right = Instantiate(shapeDict[data[i].rightShape], rightPositions[i]);
             right.transform.localScale = Vector3.one * 0.05f;
             right.GetComponentInChildren<MeshRenderer>().material = colorDict[data[i].rightColor];
+            
+            objects.Add(left);
+            objects.Add(sym);
+            objects.Add(right);
         }
     }
 }

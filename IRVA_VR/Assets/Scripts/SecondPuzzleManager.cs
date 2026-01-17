@@ -117,8 +117,10 @@ public class SecondPuzzleManager : MonoBehaviour
         foreach (var shape in currentShapes)
         {
             print($"Destroying {shape}");
-            Destroy(shape);
+            Destroy(shape.gameObject);
         }
+        
+        mathTablet.DestroyAllObjects();
         
         currentShapes.Clear();
         
