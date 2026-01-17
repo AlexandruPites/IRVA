@@ -105,6 +105,10 @@ public class SecondPuzzleManager : MonoBehaviour
         symbols = mathTablet.symbolNames;
         colors = mathTablet.colorNames;
         
+        if (shapes.Count <= 0 || shapes == null) Debug.LogError(shapes.Count);
+        if (symbols.Count <= 0 || shapes == null) Debug.LogError(symbols.Count);
+        if (colors.Count <= 0 || shapes == null) Debug.LogError(colors.Count);
+        
         code = GenerateCode();
         print($"Code is {code}");
         
@@ -161,7 +165,7 @@ public class SecondPuzzleManager : MonoBehaviour
             left.SetUpShape(row.valueLeft.ToString(), colorDict[row.leftColor]);
             left.transform.localScale = Vector3.one * 0.05f;
             
-            MathShapes right = SpawnerManager.Instance.YeetItem(shapeDict[row.leftShape], spawnContainerTag);
+            MathShapes right = SpawnerManager.Instance.YeetItem(shapeDict[row.rightShape], spawnContainerTag);
             right.SetUpShape(row.valueRight.ToString(), colorDict[row.rightColor]);
             right.transform.localScale = Vector3.one * 0.05f;
             
@@ -240,6 +244,7 @@ public class SecondPuzzleManager : MonoBehaviour
             case "blue":
                 break;
             default:
+                Debug.LogError("Color name is wrong");
                 nr = -1;
                 break;
         }
@@ -256,6 +261,7 @@ public class SecondPuzzleManager : MonoBehaviour
                 nr = nr / 2.0f;
                 break;
             default:
+                Debug.LogError("Shape name is wrong");
                 nr = -1;
                 break;
         }
