@@ -10,6 +10,7 @@ public class Drawer : MonoBehaviour
     [SerializeField] private string drawerTag = "defaultTest";
     [SerializeField] public Transform root;
     [SerializeField] public int capacity = 2;
+    [SerializeField] public Transform spawnRoot;
 
     private Vector3 drawerEnd;
     private bool isOpen = false;

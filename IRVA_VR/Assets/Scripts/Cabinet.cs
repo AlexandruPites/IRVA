@@ -49,7 +49,7 @@ public class Cabinet : MonoBehaviour, IContainer
         int chosenIndex = validIndices.GetRandomElement();
         drawerCapacities[chosenIndex]--;
         remainingCapacity = CalculateRemainingCapacity();
-        return drawers[chosenIndex].root;
+        return drawers[chosenIndex].spawnRoot;
     }
 
     private int CalculateRemainingCapacity()
