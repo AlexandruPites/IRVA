@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 using Random = UnityEngine.Random;
@@ -8,29 +9,51 @@ using Random = UnityEngine.Random;
 public class PipeGridManager : MonoBehaviour
 {
     public List<GameObject> tiles;
+    public List<GameObject> outerTiles;
     public LinearMapping linearMappingAngular;
     public LinearMapping linearMappingVeritcal;
     public LinearMapping linearMappingHorizontal;
     private int _selectedRow;
     private int _selectedColumn;
     public Hand dummyHand; // dont ask
-    private Quaternion _selectedBaseRotation;
     private float _baseValveRotation;
     public GameObject junctionPipe;
     public GameObject straightPipe;
     public Material NormalMaterial;
     public Material CorrectMaterial;
+    private Dictionary<(int, int), GameObject> getOuterTile;
+    private (int row, int column) startingPos;
+    private (int row, int column) goalPos;
+    private List<GameObject> pipePrefabs;
+    public Material sourceMaterial;
+    public Material goalMaterial;
     
     private void Awake()
     {
+        getOuterTile = new Dictionary<(int, int), GameObject>();
         _selectedRow = 2;
         _selectedColumn = 2;
         _baseValveRotation = 0f;
+
+        for (int i = 0; i < 5; i++)
+        {
+            getOuterTile.Add((i, -1), outerTiles[i]);
+            getOuterTile.Add((i, 5), outerTiles[i + 5]);
+            getOuterTile.Add((-1, i), outerTiles[i + 10]);
+            getOuterTile.Add((5, i), outerTiles[i + 15]);
+        }
+
+        pipePrefabs = new List<GameObject> { straightPipe, junctionPipe };
     }
 
     private void Start()
     {
-        GenerateGrid();
+        GenerateRandomGrid();
+        GenerateSolution();
+        ShowOuterTile(startingPos, sourceMaterial);
+        ShowOuterTile(goalPos, goalMaterial);
+        VerifySolution(startingPos.row, startingPos.column + 1, 1, goalPos);
+        
     }
 
     private void Update()
@@ -46,7 +69,6 @@ public class PipeGridManager : MonoBehaviour
             
             //Debug.Log("Switch trigger");
             GameObject selectedTile = tiles[5 * _selectedRow + _selectedColumn];
-            _selectedBaseRotation = selectedTile.transform.localRotation;
             _baseValveRotation = linearMappingAngular.value;
         }
 
@@ -59,19 +81,14 @@ public class PipeGridManager : MonoBehaviour
         var rotationIndex = GetClosestIndexInRange(5, relative_rot);
         if (Mathf.Abs(relative_rot) > 0.25f && Mathf.Abs(relative_rot) < 0.75f)
         {
-            //Debug.Log("Rot trigger");
             GameObject selectedTile = tiles[5 * _selectedRow + _selectedColumn];
-            var newRotation = Quaternion.Euler(0f, rotationIndex * 90f, 0f) * _selectedBaseRotation;
-            _selectedBaseRotation = newRotation;
-            
             var pt = selectedTile.GetComponent<PipeTile>();
             pt.rotateTile(rotationIndex);
             
-            selectedTile.transform.localRotation = newRotation;
             _baseValveRotation = linearMappingAngular.value;
             
             ClearColors();
-            VerifySolution(0, 0, 1, (4, 5));
+            VerifySolution(startingPos.row, startingPos.column + 1, 1, goalPos);
         }
     }
 
@@ -79,7 +96,7 @@ public class PipeGridManager : MonoBehaviour
     {
         foreach (var tile in tiles)
         {
-            DeColorConnectedPath(tile);
+            ChangeTileMaterial(tile, NormalMaterial);
         }
     }
 
@@ -119,38 +136,16 @@ public class PipeGridManager : MonoBehaviour
         highlight.DeHighlightOverrride(dummyHand);
     }
 
-    private void GenerateGrid()
+    private void GenerateRandomGrid()
     {
         foreach (var tile in tiles)
         {
-            // Debug.Log($"{tile.transform.childCount}");
-            for (int i = tile.transform.childCount - 1; i >= 0; i--)
-            {
-                Destroy(tile.transform.GetChild(i).gameObject);
-            }
-
+            
             int type = Random.Range(0, 2);
             int rotation = Random.Range(0, 4);
-            GameObject pipe;
-            PipeTile pt;
 
-            if (type == 0)
-            {
-                pipe = Instantiate(straightPipe, tile.transform, false);
-                pt = tile.GetComponent<PipeTile>();
-                pt.initializeTile(1, 3);
-            }
-            else
-            {
-                pipe = Instantiate(junctionPipe, tile.transform, false);
-                pt = tile.GetComponent<PipeTile>();
-                pt.initializeTile(0, 1);
-            }
-            pipe.transform.localPosition = Vector3.zero;
-            pipe.transform.localRotation = Quaternion.Euler(0f, 90f * rotation, 0f);
-            pipe.transform.localScale = Vector3.one;
-            pt.rotateTile(rotation);
-            
+            var pt = tile.GetComponent<PipeTile>();
+            pt.SpawnChild(pipePrefabs, type, rotation);
         }
         
     }
@@ -160,6 +155,7 @@ public class PipeGridManager : MonoBehaviour
 
         if (row == goal.x && column == goal.y)
         {
+            EventBus.Instance.Broadcast(new SixthPuzzleFinished());
             return true;
         }
 
@@ -187,7 +183,7 @@ public class PipeGridManager : MonoBehaviour
             return false;
         }
         
-        ColorConnectedPath(tile);
+        ChangeTileMaterial(tile, CorrectMaterial);
         
         foreach (var direction in pt.directions)
         {
@@ -203,23 +199,92 @@ public class PipeGridManager : MonoBehaviour
         return false;
     }
 
-    private void ColorConnectedPath(GameObject tile)
+    private void ChangeTileMaterial(GameObject tile, Material material)
     {
         var existingRenderers = tile.GetComponentsInChildren<MeshRenderer>();
         
         foreach (var renderer in existingRenderers)
         {
-            renderer.material = CorrectMaterial;
+            renderer.material = material;
         }
     }
-    
-    private void DeColorConnectedPath(GameObject tile)
-    {
-        var existingRenderers = tile.GetComponentsInChildren<MeshRenderer>();
 
-        foreach (var renderer in existingRenderers)
+    private void GenerateSolution()
+    {
+        List<(int, int)> visitedTiles = new List<(int, int)>();
+        startingPos = (Random.Range(0, 5), -1);
+        var currentPositon = startingPos;
+        currentPositon.column++;
+        int outgoingDirection = 1;
+        int length = 0;
+        while (true)
         {
-            renderer.material = NormalMaterial;
+            Debug.Log($"Position - {currentPositon.row}, {currentPositon.column}, Direction - {outgoingDirection}");
+            if (currentPositon.row < 0 || currentPositon.row > 4 || currentPositon.column < 0 ||
+                currentPositon.column > 4)
+            {
+                goalPos = currentPositon;
+                break;
+            }
+            
+            int incomingDirection = (outgoingDirection + 2) % 4;
+            var availableDirections = new List<int> { 0, 1, 2, 3 };
+            availableDirections.Remove(incomingDirection);
+
+            for (int i = 0; i < availableDirections.Count; i++)
+            {
+                var pos = (currentPositon.row + PipeTile.Offsets[availableDirections[i]].x, currentPositon.column + PipeTile.Offsets[availableDirections[i]].y);
+
+                if (visitedTiles.Contains(pos))
+
+                {
+
+                    availableDirections.RemoveAt(i);
+                    i--;
+
+                }
+            }
+            // Debug.Log("Directions: " + string.Join(", ", availableDirections));
+
+            int newDirection = availableDirections.GetRandomElement();
+            
+            GameObject selectedTile = tiles[5 * currentPositon.row + currentPositon.column];
+            var pt = selectedTile.GetComponent<PipeTile>();
+            
+            pt.SpawnChild(pipePrefabs, pt.GetTypeFromDesiredDirection(incomingDirection, newDirection), Random.Range(0, 4));
+            
+            // pt.SpawnChildToDirection(pipePrefabs, incomingDirection, newDirection);
+            visitedTiles.Add(currentPositon);
+            
+            currentPositon = (currentPositon.row + PipeTile.Offsets[newDirection].x,
+                currentPositon.column + PipeTile.Offsets[newDirection].y);
+            
+            outgoingDirection = newDirection;
+            
+            if (visitedTiles.Contains(currentPositon))
+            {
+                //GenerateSolution();
+                break;
+            }
+
+            length++;
         }
+
+        if (length < 10)
+        {
+            GenerateSolution();
+        }
+    }
+
+    void ShowOuterTile((int row, int column) tileLocation, Material material)
+    {
+        var tile = getOuterTile[tileLocation];
+
+        for (int i = 0; i < tile.transform.childCount; i++)
+        {
+            tile.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        
+        ChangeTileMaterial(tile, material);
     }
 }
