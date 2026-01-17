@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class FifthPuzzleManager : MonoBehaviour
 {
+    [SerializeField] private GameObject JoeJeff;
     public List<Key> keys;
     public LockController lok;
     public List<TMP_Text> hintTexts;
@@ -63,6 +64,8 @@ public class FifthPuzzleManager : MonoBehaviour
         {
             hintTexts[i].text = _hints[solution_index][i];
         }
+
+        JoeJeff.transform.position = SpawnerManager.Instance.RequestSpawnPoint("JoeJeff").position;
     }
 
     public void CorrectSolution(LockUnlocked obj)
