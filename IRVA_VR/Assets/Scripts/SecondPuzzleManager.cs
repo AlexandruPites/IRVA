@@ -99,7 +99,6 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        print("Second puzzle Start");
         endButton.SetActive(false);
         
         shapes = mathTablet.shapeNames;
@@ -114,7 +113,6 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private string GenerateCode()
     {
-        print(currentShapes.Count);
         foreach (var shape in currentShapes)
         {
             print($"Destroying {shape}");

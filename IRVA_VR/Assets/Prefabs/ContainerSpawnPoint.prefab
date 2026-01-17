@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fccd0d3eb837d84898af7b48f72ca84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint
+  tags:
+  - puzzle_3
+  spawnPointScaleMultiplier: 1
+  spawnPointPositionOffset: {x: 0, y: 0, z: 0}
+  spawnContainerType: 0
