@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -45,22 +46,40 @@ public class KeypadController : MonoBehaviour
         EventBus.Instance.Broadcast(new SecondPuzzleCodeEntered(displayText.text));
     }
     
-    public IEnumerator DisplayColor(Color color, float seconds)
+    public IEnumerator DisplayDigitFeedback(string playerInput, string correctCode, float seconds)
     {
         isEnabled = false;
+
+        StringBuilder coloredString = new StringBuilder();
+
+        for (int i = 0; i < playerInput.Length; i++)
+        {
+            if (i < correctCode.Length)
+            {
+                if (playerInput[i] == correctCode[i])
+                {
+                    coloredString.Append($"<color=green>{playerInput[i]}</color>");
+                }
+                else
+                {
+                    coloredString.Append($"<color=red>{playerInput[i]}</color>");
+                }
+            }
+        }
+
         for (int i = 0; i < 3; i++)
         {
-            displayText.color = color;
+            displayText.text = coloredString.ToString();
             yield return new WaitForSeconds(seconds);
-            displayText.color = Color.white;
+
+            displayText.text = playerInput;
+            displayText.color = Color.white; 
             yield return new WaitForSeconds(seconds);
         }
 
-        displayText.color = color;
         currentDigits = 0;
         displayText.text = "";
         displayText.color = Color.white;
         isEnabled = true;
-
     }
 }

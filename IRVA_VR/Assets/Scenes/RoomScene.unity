@@ -6972,12 +6972,25 @@ MonoBehaviour:
   codeLength: 4
   solution: {fileID: 748578547}
   keypad: {fileID: 736690029}
-  mathTablet: {fileID: 0}
-  cabinet: {fileID: 0}
-  shapeNames: []
-  mathShapePrefabs: []
-  colorNames: []
-  colorMaterials: []
+  mathTablet: {fileID: 2064523844}
+  cabinet: {fileID: 1895482589}
+  maxTries: 3
+  shapeNames:
+  - cube
+  - sphere
+  - capsule
+  mathShapePrefabs:
+  - {fileID: 2457483166488006812, guid: 126817513dbd3fd4ba996c57fbf0f930, type: 3}
+  - {fileID: 759285812792104807, guid: 99893adc5af75c842aa3cd88420b33b5, type: 3}
+  - {fileID: 6689477487487747102, guid: 4250be71c39408845bd52eebfe82723a, type: 3}
+  colorNames:
+  - red
+  - green
+  - blue
+  colorMaterials:
+  - {fileID: 2100000, guid: 9a5fe43864d0468478fe776ec5b9e125, type: 2}
+  - {fileID: 2100000, guid: 5dc58e1e69e93e5488ebb727f93b2b39, type: 2}
+  - {fileID: 2100000, guid: 1f744e9575c39514783792f4bc2aaf45, type: 2}
 --- !u!4 &1491732929
 Transform:
   m_ObjectHideFlags: 0
@@ -8745,6 +8758,17 @@ Transform:
   - {fileID: 199906791}
   m_Father: {fileID: 433948763}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1895482589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 353535978945490633, guid: 6b167fb43216d5849aef6c4acca342eb, type: 3}
+  m_PrefabInstance: {fileID: 107983866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b20afd47ffe8644bd07ba37dcab640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1913395260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9694,6 +9718,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1025160180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064523844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8682301707401646407, guid: f15f0079d851f3d4db646300f79ba912, type: 3}
+  m_PrefabInstance: {fileID: 1027066547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa83333b149f1f14092b67d98a70a342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!114 &2083042878 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5743089907595004946, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}

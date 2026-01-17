@@ -33,6 +33,7 @@ public class SecondPuzzleManager : MonoBehaviour
     [SerializeField] private KeypadController keypad;
     [SerializeField] private MathTablet mathTablet;
     [SerializeField] private Cabinet cabinet;
+    [SerializeField] private int maxTries = 3;
     
     [Header("Shapes")]
     [SerializeField] private List<string> shapeNames;
@@ -49,8 +50,9 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private Dictionary<(string shape, string color), bool> combinations = new();
     
-    
     private string code = "";
+
+    private List<MathShapes> currentShapes = new();
 
     private void Awake()
     {
@@ -77,14 +79,20 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private void OnCodeEntered(SecondPuzzleCodeEntered obj)
     {
+        StartCoroutine(keypad.DisplayDigitFeedback(obj.value, code, 0.5f));
+        
         if (obj.value.Equals(code))
         {
-            StartCoroutine(keypad.DisplayColor(Color.green, 0.5f));
             endButton.SetActive(true);
         }
         else
         {
-            StartCoroutine(keypad.DisplayColor(Color.red, 0.5f));
+            maxTries--;
+
+            if (maxTries <= 0)
+            {
+                GenerateCode();
+            }
         }
     }
 
@@ -105,6 +113,15 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private string GenerateCode()
     {
+        print(currentShapes.Count);
+        foreach (var shape in currentShapes)
+        {
+            print($"Destroying {shape}");
+            Destroy(shape);
+        }
+        
+        currentShapes.Clear();
+        
         GenerateCombinations();
         string generatedCode = "";
         List<RowData> data = new List<RowData>();
@@ -150,6 +167,9 @@ public class SecondPuzzleManager : MonoBehaviour
             right.SetUpShape(row.valueRight.ToString(), colorDict[row.rightColor]);
             right.transform.localScale = Vector3.one * 0.1f;
             right.transform.position = spawnPoint.position;//+ (Random.insideUnitSphere * 0.3f);
+            
+            currentShapes.Add(left);
+            currentShapes.Add(right);
         }
     }
 
