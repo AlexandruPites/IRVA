@@ -34,6 +34,7 @@ public class SecondPuzzleManager : MonoBehaviour
     [SerializeField] private MathTablet mathTablet;
     [SerializeField] private Cabinet cabinet;
     [SerializeField] private int maxTries = 3;
+    [SerializeField] private string spawnContainerTag = "puzzle_2";
     
     [Header("Shapes")]
     [SerializeField] private List<string> shapeNames;
@@ -158,17 +159,17 @@ public class SecondPuzzleManager : MonoBehaviour
     {
         foreach (var row in data)
         {
-            Transform spawnPoint = cabinet.drawers[0].root;
-            
-            MathShapes left = Instantiate(shapeDict[row.leftShape], spawnPoint);
+            // Transform spawnPoint = cabinet.drawers[0].root;
+
+            MathShapes left = SpawnerManager.Instance.YeetItem(shapeDict[row.leftShape], spawnContainerTag);//Instantiate(shapeDict[row.leftShape], spawnPoint);
             left.SetUpShape(row.valueLeft.ToString(), colorDict[row.leftColor]);
             left.transform.localScale = Vector3.one * 0.1f;
-            left.transform.position = spawnPoint.position;//+ (Random.insideUnitSphere * 0.3f);
+            //left.transform.position = spawnPoint.position;//+ (Random.insideUnitSphere * 0.3f);
             
-            MathShapes right = Instantiate(shapeDict[row.rightShape], spawnPoint);
+            MathShapes right = SpawnerManager.Instance.YeetItem(shapeDict[row.leftShape], spawnContainerTag);//Instantiate(shapeDict[row.rightShape], spawnPoint);
             right.SetUpShape(row.valueRight.ToString(), colorDict[row.rightColor]);
             right.transform.localScale = Vector3.one * 0.1f;
-            right.transform.position = spawnPoint.position;//+ (Random.insideUnitSphere * 0.3f);
+            //right.transform.position = spawnPoint.position;//+ (Random.insideUnitSphere * 0.3f);
             
             currentShapes.Add(left);
             currentShapes.Add(right);

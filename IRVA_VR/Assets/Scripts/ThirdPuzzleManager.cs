@@ -10,7 +10,7 @@ public class ThirdPuzzleManager : MonoBehaviour
     [SerializeField] private List<LockController> locks;
     [SerializeField] private List<Key> puzzleKeys;
     [SerializeField] private Tablet tablet;
-    [SerializeField] private List<Cabinet> cabinets;
+    [SerializeField] private string spawnPointTag = "puzzle_3";
     
     [Header("Dictionary Emulation :( 'cause Unity doesn't support Serializable Dicts in inspector")]
     [SerializeField] private List<string> dictKeys;
@@ -78,10 +78,7 @@ public class ThirdPuzzleManager : MonoBehaviour
 
         for (int i = 0; i < puzzleKeys.Count; i++)
         {
-            int x = Random.Range(0, puzzleKeys.Count);
-            int y = Random.Range(0, cabinets[i].drawers.Count);
-
-            puzzleKeys[i].transform.position = cabinets[x].drawers[y].root.position;
+            puzzleKeys[i].transform.position = SpawnerManager.Instance.RequestSpawnPoint(tag: spawnPointTag).position;
         }
 
     }
