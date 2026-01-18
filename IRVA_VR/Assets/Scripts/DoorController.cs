@@ -46,11 +46,4 @@ public class DoorController : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    
-    bool IsValidString(string input)
-    {
-        return Regex.IsMatch(input, @"^end[1-6]$");
-    }
-    
-    
 }

@@ -27,7 +27,6 @@ public struct RowData
 }
 public class SecondPuzzleManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endButton;
     [SerializeField] private int codeLength = 4;
     [SerializeField] private TMP_Text solution;
     [SerializeField] private KeypadController keypad;
@@ -85,7 +84,7 @@ public class SecondPuzzleManager : MonoBehaviour
         
         if (obj.value.Equals(code))
         {
-            endButton.SetActive(true);
+            EventBus.Instance.Broadcast(new PuzzleFinished(2, endKeySpawn.transform.position));
         }
         else
         {
@@ -100,7 +99,6 @@ public class SecondPuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        endButton.SetActive(false);
         
         shapes = mathTablet.shapeNames;
         symbols = mathTablet.symbolNames;
@@ -276,11 +274,6 @@ public class SecondPuzzleManager : MonoBehaviour
         }
 
         return nr;
-    }
-
-    public void CorrectSolution()
-    {
-        EventBus.Instance.Broadcast(new PuzzleFinished(2, endKeySpawn.transform.position));
     }
     
     

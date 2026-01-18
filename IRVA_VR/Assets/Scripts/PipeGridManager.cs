@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,7 @@ public class PipeGridManager : MonoBehaviour
     public Material sourceMaterial;
     public Material goalMaterial;
     [SerializeField] private Transform endKeySpawn;
+    [SerializeField] private bool autoSolvePipes = false;
     
     private void Awake()
     {
@@ -247,7 +249,7 @@ public class PipeGridManager : MonoBehaviour
             }
             // Debug.Log("Directions: " + string.Join(", ", availableDirections));
 
-            if (availableDirections.Count == 0)
+            if (availableDirections.Count <= 0)
             {
                 GenerateSolution();
             }
@@ -256,10 +258,16 @@ public class PipeGridManager : MonoBehaviour
             
             GameObject selectedTile = tiles[5 * currentPositon.row + currentPositon.column];
             var pt = selectedTile.GetComponent<PipeTile>();
+
+            if (!autoSolvePipes)
+            {
+                pt.SpawnChild(pipePrefabs, pt.GetTypeFromDesiredDirection(incomingDirection, newDirection), Random.Range(0, 4));
+            }
+            else
+            {
+                pt.SpawnChildToDirection(pipePrefabs, incomingDirection, newDirection);
+            }
             
-            pt.SpawnChild(pipePrefabs, pt.GetTypeFromDesiredDirection(incomingDirection, newDirection), Random.Range(0, 4));
-            
-            // pt.SpawnChildToDirection(pipePrefabs, incomingDirection, newDirection);
             visitedTiles.Add(currentPositon);
             
             currentPositon = (currentPositon.row + PipeTile.Offsets[newDirection].x,

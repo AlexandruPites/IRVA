@@ -25,11 +25,7 @@ public class ThirdPuzzleManager : MonoBehaviour
     private void Start()
     {
         EventBus.Instance.Subscribe<LockUnlocked>(OnUnlock);
-        foreach (var myLock in locks)
-        {
-            lockTags.Add(myLock.puzzleTag);
-        }
-        maxCount = lockTags.Count;
+        maxCount = locks.Count;
 
         foreach (var color in allColors)
         {
@@ -76,6 +72,7 @@ public class ThirdPuzzleManager : MonoBehaviour
             component.SetUpKey(randomKey, m2);
             
             locks[i].SetUpLock(randomKey, m1);
+            lockTags.Add(randomKey + "_puzzle_3");
             
             temp_locks.Add(m1);
             temp_keys.Add(m2);
@@ -102,6 +99,7 @@ public class ThirdPuzzleManager : MonoBehaviour
 
     private void OnUnlock(LockUnlocked obj)
     {
+        print(string.Join(',', lockTags));
         if (lockTags.Contains(obj.lockTag))
         {
             locksUnlockedCount++;
