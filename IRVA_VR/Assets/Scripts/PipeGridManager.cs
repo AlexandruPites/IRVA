@@ -252,6 +252,7 @@ public class PipeGridManager : MonoBehaviour
             if (availableDirections.Count <= 0)
             {
                 GenerateSolution();
+                return;
             }
             
             int newDirection = availableDirections.GetRandomElement();
@@ -287,6 +288,7 @@ public class PipeGridManager : MonoBehaviour
         if (length < 10)
         {
             GenerateSolution();
+            return;
         }
     }
 
