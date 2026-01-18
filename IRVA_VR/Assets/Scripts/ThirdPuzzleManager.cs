@@ -2,21 +2,21 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using JetBrains.Annotations;
+using Unity.Mathematics;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class ThirdPuzzleManager : MonoBehaviour
 {
     [SerializeField] private List<LockController> locks;
-    [SerializeField] private List<Key> puzzleKeys;
+    [SerializeField] private GameObject keyPrefab;
     [SerializeField] private Tablet tablet;
     [SerializeField] private string spawnPointTag = "puzzle_3";
-    
-    [Header("Dictionary Emulation :( 'cause Unity doesn't support Serializable Dicts in inspector")]
-    [SerializeField] private List<string> dictKeys;
-    [SerializeField] private List<Material> dictValues;
+    [SerializeField] private List<Color> allColors;
+    [SerializeField] private Transform endKeySpawn;
 
-    private Dictionary<string, Material> colorDict = new();
+    private Dictionary<string, Color> colorDict = new();
     private List<string> lockTags = new();
 
     private int locksUnlockedCount = 0;
@@ -31,16 +31,9 @@ public class ThirdPuzzleManager : MonoBehaviour
         }
         maxCount = lockTags.Count;
 
-        if (dictKeys.Count == dictValues.Count)
+        foreach (var color in allColors)
         {
-            for (int i = 0; i < dictKeys.Count; i++)
-            {
-                colorDict.Add(dictKeys[i], dictValues[i]);
-            }
-        }
-        else
-        {
-            Debug.LogError("ColorDictInspectorEmulationListsSizeMismatch");
+            colorDict.Add(color.ToString(), color);
         }
         
         GeneratePuzzle();
@@ -57,29 +50,53 @@ public class ThirdPuzzleManager : MonoBehaviour
         {
             colorMatches.Add(initialColors[i], solutions[i]);
         }
-        
-        List<Material> temp_locks = new List<Material>();
-        List<Material> temp_keys = new List<Material>();
-        int index = 0;
-        foreach (var match in colorMatches)
+        List<Color> temp_locks = new List<Color>();
+        List<Color> temp_keys = new List<Color>();
+
+        for (int i = 0; i < locks.Count; i++)
         {
-            Material m1 = colorDict[match.Key];
-            Material m2 = colorDict[match.Value];
+            List<string> colorMatchesKeys = new List<string>(colorMatches.Keys);
+            string randomKey = colorMatchesKeys.GetRandomElement();
+            string randomValue = colorMatches[randomKey];
+
+            colorMatches.Remove(randomKey);
             
-            locks[index].SetUpLock(match.Key, m1);
-            puzzleKeys[index].SetUpKey(match.Key, m2);
+            Color m1 = colorDict[randomKey];
+            Color m2 = colorDict[randomValue];
+
+            GameObject key = SpawnerManager.Instance.YeetItem(keyPrefab, spawnPointTag);
+            Vector3 parentScale = key.transform.parent.lossyScale;
+            Vector3 newLocalScale = new Vector3(
+                1f / parentScale.x,
+                1f / parentScale.y,
+                1f / parentScale.z
+                );
+            key.transform.localScale = newLocalScale;
+            key.TryGetComponent(out Key component);
+            component.SetUpKey(randomKey, m2);
+            
+            locks[i].SetUpLock(randomKey, m1);
             
             temp_locks.Add(m1);
             temp_keys.Add(m2);
-            index++;
+        }
+
+        foreach (var match in colorMatches)
+        {
+            Color m2 = colorDict[match.Value];
+            GameObject key = SpawnerManager.Instance.YeetItem(keyPrefab, spawnPointTag);
+            Vector3 parentScale = key.transform.parent.lossyScale;
+            Vector3 newLocalScale = new Vector3(
+                1f / parentScale.x,
+                1f / parentScale.y,
+                1f / parentScale.z
+            );
+            key.transform.localScale = newLocalScale;
+            key.TryGetComponent(out Key component);
+            component.SetUpKey("", m2);
         }
         
         tablet.SetUpTablet(temp_locks, temp_keys);
-
-        for (int i = 0; i < puzzleKeys.Count; i++)
-        {
-            puzzleKeys[i].transform.position = SpawnerManager.Instance.RequestSpawnPoint(tag: spawnPointTag).position;
-        }
 
     }
 
@@ -102,6 +119,6 @@ public class ThirdPuzzleManager : MonoBehaviour
 
     public void CorrectSolution()
     {
-        EventBus.Instance.Broadcast(new ThirdPuzzleFinished());
+        EventBus.Instance.Broadcast(new PuzzleFinished(3, endKeySpawn.transform.position));
     }
 }

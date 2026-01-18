@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spawnPoint: {fileID: 9057532136869820280}
-  chestCapacity: 2
+  chestCapacity: 1
   scaleModifier: 1
 --- !u!1001 &7737522484844858262
 PrefabInstance:
@@ -212,7 +212,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChestV1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6782338723530283425, guid: 07f9fbf665ac5474dbc0ac26d35d7c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6782338723530283425, guid: 07f9fbf665ac5474dbc0ac26d35d7c8c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

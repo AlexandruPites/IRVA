@@ -4,6 +4,6 @@ public class SixthPuzzleManager : MonoBehaviour
 {
     public void CorrectSolution()
     {
-        EventBus.Instance.Broadcast(new SixthPuzzleFinished());
+        //EventBus.Instance.Broadcast(new SixthPuzzleFinished());
     }
 }

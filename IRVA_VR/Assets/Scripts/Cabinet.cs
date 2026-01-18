@@ -43,7 +43,8 @@ public class Cabinet : MonoBehaviour, IContainer
         
         if (validIndices.Count == 0)
         {
-            return null;
+            Debug.LogWarning("No space but still giving a random position." + string.Join(',', drawerCapacities));
+            return drawers[validIndices.GetRandomElement()].spawnRoot;
         }
         
         int chosenIndex = validIndices.GetRandomElement();

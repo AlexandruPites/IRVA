@@ -15,13 +15,13 @@ public class LockController : MonoBehaviour
     [SerializeField] private MeshRenderer colorCube;
     [SerializeField] private MeshRenderer correctDisplayCube;
 
-    public void SetUpLock(string key, Material material)
+    public void SetUpLock(string key, Color color)
     {
         puzzleTag = key + "_puzzle_3";
-        colorCube.material = material;
+        colorCube.material.color = color;
     }
     
-    public void SetUpLock(string key)
+    public void SetUpLockP4(string key)
     {
         puzzleTag = key + "_puzzle_4";
     }
@@ -54,7 +54,12 @@ public class LockController : MonoBehaviour
         {
             interactable.attachedToHand.DetachObject(key);
         }
-        key.transform.SetParent(attachPosition);
+
+        key.transform.SetParent(attachPosition, true);
+        
+        var scale = key.transform.localScale;
+        scale.z = key.transform.localScale.x;
+        key.transform.localScale = scale;
         key.transform.position = attachPosition.position;
         key.transform.rotation = attachPosition.rotation;
         key.transform.localRotation = Quaternion.Euler(0, 90, -90);

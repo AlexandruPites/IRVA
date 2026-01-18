@@ -9,17 +9,8 @@ public record LockUnlocked(string lockTag);
 
 public record DrawerOpened(string drawerTag);
 public record DrawerClosed(string drawerTag);
-public record FirstPuzzleFinished;
-public record FirstPuzzleButtonPressed(int Number);
-
-public record SecondPuzzleFinished;
+public record PuzzleFinished(int number, Vector3 position);
 
 public record SecondPuzzleCodeEntered(string value);
+public record FirstPuzzleButtonPressed(int Number);
 
-public record ThirdPuzzleFinished;
-
-public record FourthPuzzleFinished;
-
-public record FifthPuzzleFinished;
-
-public record SixthPuzzleFinished;

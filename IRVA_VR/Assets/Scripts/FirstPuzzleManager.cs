@@ -9,6 +9,7 @@ public class FirstPuzzleManager : MonoBehaviour
     [SerializeField] private List<FirstPuzzleButton> solutionButtons;
     [SerializeField] private float flashDuration = 0.5f;
     [SerializeField] private float intervalDuration = 0.2f;
+    [SerializeField] private Transform endKeySpawn;
     
     public Material correct, wrong, simon, neutral, active;
 
@@ -87,7 +88,7 @@ public class FirstPuzzleManager : MonoBehaviour
     {
         if (currentSize == 7)
         {
-            EventBus.Instance.Broadcast(new FirstPuzzleFinished());
+            EventBus.Instance.Broadcast(new PuzzleFinished(1, endKeySpawn.position));
             finished = true;
         }
 

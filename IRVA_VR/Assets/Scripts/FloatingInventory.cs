@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
+using Valve.VR.InteractionSystem.Sample;
 
 public class FloatingInventory : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class FloatingInventory : MonoBehaviour
     
     public void AddItem(GameObject item)
     {
+        print(item.name);
         if (inventoryItems.Contains(item.transform))
         {
             return;
@@ -91,6 +93,15 @@ public class FloatingInventory : MonoBehaviour
             //rb.useGravity = false; Face bug la JJ :(
         }
 
+        if (!item.TryGetComponent(out JoeJeff jj))
+        {
+            Collider[] allColliders = item.GetComponentsInChildren<Collider>();
+            foreach (Collider col in allColliders)
+            {
+                if (col) col.isTrigger = true; 
+            }
+        }
+        
         Pickupable listener = item.GetComponent<Pickupable>();
         listener.activeInventory = this;
 
@@ -112,6 +123,15 @@ public class FloatingInventory : MonoBehaviour
             {
                 rb.isKinematic = false;
                 rb.useGravity = true;
+            }
+            
+            if (!item.TryGetComponent(out JoeJeff jj))
+            {
+                Collider[] allColliders = item.GetComponentsInChildren<Collider>();
+                foreach (Collider col in allColliders)
+                {
+                    if (col) col.isTrigger = false; 
+                }
             }
             
             Pickupable listener = item.GetComponent<Pickupable>();

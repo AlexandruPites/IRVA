@@ -32,9 +32,10 @@ public class SecondPuzzleManager : MonoBehaviour
     [SerializeField] private TMP_Text solution;
     [SerializeField] private KeypadController keypad;
     [SerializeField] private MathTablet mathTablet;
-    [SerializeField] private Cabinet cabinet;
     [SerializeField] private int maxTries = 3;
     [SerializeField] private string spawnContainerTag = "puzzle_2";
+    [SerializeField] private Transform endKeySpawn;
+    [SerializeField] private bool showCode = false;
     
     [Header("Shapes")]
     [SerializeField] private List<string> shapeNames;
@@ -111,8 +112,16 @@ public class SecondPuzzleManager : MonoBehaviour
         
         code = GenerateCode();
         print($"Code is {code}");
+
+        if (showCode)
+        {
+            solution.text = code;
+        }
+        else
+        {
+            solution.text = "";
+        }
         
-        solution.text = code;
     }
 
     private string GenerateCode()
@@ -213,7 +222,7 @@ public class SecondPuzzleManager : MonoBehaviour
                 return (a, b, result);
             case "multiply":
                 a = Random.Range(1, 10);
-                b = Random.Range(0, (10 / a) + 1);
+                b = Random.Range(0, (9 / a) + 1);
                 result = a * b;
                 return (a, b, result);
             case "divide":
@@ -271,7 +280,7 @@ public class SecondPuzzleManager : MonoBehaviour
 
     public void CorrectSolution()
     {
-        EventBus.Instance.Broadcast(new SecondPuzzleFinished());
+        EventBus.Instance.Broadcast(new PuzzleFinished(2, endKeySpawn.transform.position));
     }
     
     

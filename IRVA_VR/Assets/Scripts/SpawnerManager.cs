@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnerManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SpawnerManager : MonoBehaviour
     
     private List<SpawnPoint> spawnPoints = new();
     private Dictionary<GameObject, List<string>> containers = new();
+    
+    [SerializeField] private float spawnJitterAmount = 0.2f;
 
     private void Awake()
     {
@@ -54,8 +57,36 @@ public class SpawnerManager : MonoBehaviour
     {
         // This should not be modified to preserve compatibility with Instantiate
         Transform spawnTransform = RequestSpawnPoint(tag);
+        if (spawnTransform == lostAndFound)
+        {
+            Debug.LogError("[Yeet Item] Couldn't find spawn for request with tag -> " + tag);
+        }
         T newInstance = Instantiate(prefab, spawnTransform);
+        
+        GameObject spawnedGO = null;
+
+        if (newInstance is Component comp) spawnedGO = comp.gameObject;
+        else if (newInstance is GameObject go) spawnedGO = go;
+
+        if (spawnedGO != null)
+        {
+            ApplyAntiExplosionJitter(spawnedGO.transform);
+        }
+        
         return newInstance;
+    }
+    
+    private void ApplyAntiExplosionJitter(Transform target)
+    {
+        target.Rotate(Vector3.up, Random.Range(0f, 360f), Space.Self);
+
+        Vector3 jitter = new Vector3(
+            Random.Range(-spawnJitterAmount, spawnJitterAmount),
+            0.05f,
+            Random.Range(-spawnJitterAmount, spawnJitterAmount)
+        );
+
+        target.localPosition += jitter;
     }
 
     public Transform RequestSpawnPoint(string tag = null, bool debug = false)
@@ -109,7 +140,7 @@ public class SpawnerManager : MonoBehaviour
 
         if (conts.Count <= 0)
         {
-            Debug.LogError("Couldn't find spawn for request with tag -> " + tag);
+            Debug.LogError("No valid containers! Couldn't find spawn for request with tag -> " + tag);
             return lostAndFound;
         }
 
@@ -127,7 +158,8 @@ public class SpawnerManager : MonoBehaviour
         {
             return result;
         }
-
+        
+        Debug.LogError("Container full! Couldn't find spawn for request with tag -> " + tag);
         return lostAndFound;
     }
 }

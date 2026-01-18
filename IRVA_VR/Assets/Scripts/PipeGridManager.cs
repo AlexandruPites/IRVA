@@ -27,6 +27,7 @@ public class PipeGridManager : MonoBehaviour
     private List<GameObject> pipePrefabs;
     public Material sourceMaterial;
     public Material goalMaterial;
+    [SerializeField] private Transform endKeySpawn;
     
     private void Awake()
     {
@@ -155,7 +156,7 @@ public class PipeGridManager : MonoBehaviour
 
         if (row == goal.x && column == goal.y)
         {
-            EventBus.Instance.Broadcast(new SixthPuzzleFinished());
+            EventBus.Instance.Broadcast(new PuzzleFinished(6, endKeySpawn.transform.position));
             return true;
         }
 

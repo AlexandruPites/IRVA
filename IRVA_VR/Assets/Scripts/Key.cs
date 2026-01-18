@@ -7,13 +7,13 @@ public class Key : MonoBehaviour
     [SerializeField] public string puzzleTag;
     [SerializeField] private MeshRenderer renderer;
 
-    public void SetUpKey(string key, Material material)
+    public void SetUpKey(string key, Color color)
     {
         puzzleTag = key + "_puzzle_3";
-        renderer.material = material;
+        renderer.material.color = color;
     }
     
-    public void SetUpKey(string key)
+    public void SetUpKeyP4(string key)
     {
         puzzleTag = key + "_puzzle_4";
     }

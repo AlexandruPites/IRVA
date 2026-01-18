@@ -13,6 +13,7 @@ public class StickController : MonoBehaviour
     public Material normalMat;
     public Material correctMat;
     public List<GameObject> progressBar;
+    [SerializeField] private Transform endKeySpawn;
     
     [Header("Timer Settings")]
     public float timeLimit = 10f; 
@@ -126,7 +127,7 @@ public class StickController : MonoBehaviour
 
     void PuzzleComplete()
     {
-        EventBus.Instance.Broadcast(new FourthPuzzleFinished());
+        EventBus.Instance.Broadcast(new PuzzleFinished(4, endKeySpawn.transform.position));
         goal.SetActive(false);
         this.enabled = false;
     }

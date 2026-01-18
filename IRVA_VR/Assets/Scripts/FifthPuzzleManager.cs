@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class FifthPuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject JoeJeff;
+    [SerializeField] private Transform endKeySpawn;
     public List<Key> keys;
     public LockController lok;
     public List<TMP_Text> hintTexts;
@@ -57,8 +58,8 @@ public class FifthPuzzleManager : MonoBehaviour
         
         int solution_index = Random.Range(0, _solutions.Count);
         
-        lok.SetUpLock("solution");
-        keys[_solutions[solution_index]].SetUpKey("solution");
+        lok.SetUpLockP4("solution");
+        keys[_solutions[solution_index]].SetUpKeyP4("solution");
 
         for (int i = 0; i < _hints[solution_index].Count; i++)
         {
@@ -72,7 +73,7 @@ public class FifthPuzzleManager : MonoBehaviour
     {
         if (obj.lockTag.Equals("solution_puzzle_4"))
         {
-            EventBus.Instance.Broadcast(new FifthPuzzleFinished());
+            EventBus.Instance.Broadcast(new PuzzleFinished(5, endKeySpawn.transform.position));
         }
     }
 }
