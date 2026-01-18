@@ -246,6 +246,11 @@ public class PipeGridManager : MonoBehaviour
             }
             // Debug.Log("Directions: " + string.Join(", ", availableDirections));
 
+            if (availableDirections.Count == 0)
+            {
+                GenerateSolution();
+            }
+            
             int newDirection = availableDirections.GetRandomElement();
             
             GameObject selectedTile = tiles[5 * currentPositon.row + currentPositon.column];
