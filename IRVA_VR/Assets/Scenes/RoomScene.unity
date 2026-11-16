@@ -551,6 +551,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &143824899
 MeshFilter:
@@ -639,6 +640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeGrid
       objectReference: {fileID: 0}
+    - target: {fileID: 2868342519662470603, guid: d42ff092a9e2aa346a7b8715fa861cdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6856530535138424935, guid: d42ff092a9e2aa346a7b8715fa861cdb, type: 3}
       propertyPath: dummyHand
       value: 
@@ -695,7 +700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &166474688
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -765,6 +770,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &166474690
 MeshFilter:
@@ -928,6 +934,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &216926864
 MeshFilter:
@@ -1039,6 +1046,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &224257786
 MeshFilter:
@@ -1141,6 +1149,10 @@ PrefabInstance:
     - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_Name
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112570345908746965, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_UseGravity
@@ -1251,6 +1263,10 @@ PrefabInstance:
     - target: {fileID: 1844781464160067994, guid: 34eea6f6cc11f194db58a34f5b0d6809, type: 3}
       propertyPath: m_Name
       value: InfoTabletColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844781464160067994, guid: 34eea6f6cc11f194db58a34f5b0d6809, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1454,7 +1470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1534,7 +1550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &409959252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,7 +1558,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409959251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 237397222f3a0444e85b7f031c34820a, type: 3}
   m_Name: 
@@ -1753,6 +1769,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &486863322
 MeshFilter:
@@ -1811,7 +1828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1886,6 +1903,10 @@ PrefabInstance:
     - target: {fileID: 5012598169588487989, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: m_Name
       value: Lock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012598169588487989, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5087145259824037563, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2050,6 +2071,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &544216023
 MeshFilter:
@@ -2148,6 +2170,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &558603187
 MeshFilter:
@@ -2261,6 +2284,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &560123531
 MeshFilter:
@@ -2456,6 +2480,10 @@ PrefabInstance:
     - target: {fileID: 5484143067148718605, guid: a13d2e69fa1e864409069613ea1f7b84, type: 3}
       propertyPath: m_Name
       value: Keypad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484143067148718605, guid: a13d2e69fa1e864409069613ea1f7b84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8213722713293565225, guid: a13d2e69fa1e864409069613ea1f7b84, type: 3}
       propertyPath: m_LocalScale.x
@@ -2669,7 +2697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &738171152
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2739,6 +2767,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &738171154
 MeshFilter:
@@ -2860,6 +2889,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3053,6 +3083,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &785027200
 MeshFilter:
@@ -3118,14 +3149,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788243207}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -3376,7 +3407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &841112205
 Transform:
   m_ObjectHideFlags: 0
@@ -3475,6 +3506,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &841112209
 MeshFilter:
@@ -3500,6 +3532,10 @@ PrefabInstance:
     - target: {fileID: 1020922245520590675, guid: af1747ac84f4c16498f7814e326b1061, type: 3}
       propertyPath: m_Name
       value: '[InteractableButton] (4)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020922245520590675, guid: af1747ac84f4c16498f7814e326b1061, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5392205545349848168, guid: af1747ac84f4c16498f7814e326b1061, type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3676,6 +3712,10 @@ PrefabInstance:
     - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_Name
       value: Key (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112570345908746965, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_UseGravity
@@ -3988,7 +4028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4151,6 +4191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MathTablet
       objectReference: {fileID: 0}
+    - target: {fileID: 1240055473243535608, guid: f15f0079d851f3d4db646300f79ba912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4256,6 +4300,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1029672196
 MeshFilter:
@@ -4342,7 +4387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 2727136085729205219, guid: 044e1c00cde308f4db2562ad30151622, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4826,6 +4871,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1141170587
 MeshFilter:
@@ -5015,6 +5061,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1207067848
 MeshFilter:
@@ -5141,6 +5188,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1223273901
 MeshFilter:
@@ -5165,7 +5213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1233619003
 Transform:
   m_ObjectHideFlags: 0
@@ -5258,6 +5306,10 @@ PrefabInstance:
     - target: {fileID: 5012598169588487989, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: m_Name
       value: Lock3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012598169588487989, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5087145259824037563, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5549,6 +5601,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1378403589
 MeshFilter:
@@ -5701,6 +5754,10 @@ PrefabInstance:
     - target: {fileID: 2534144228727042591, guid: 027f26264b56c724d94ae1240d124b50, type: 3}
       propertyPath: m_Name
       value: Maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534144228727042591, guid: 027f26264b56c724d94ae1240d124b50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6203844593856588755, guid: 027f26264b56c724d94ae1240d124b50, type: 3}
       propertyPath: m_LocalScale.x
@@ -5988,6 +6045,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1490586117
 MeshFilter:
@@ -6028,7 +6086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1491732928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6441,6 +6499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfoTabletShape
       objectReference: {fileID: 0}
+    - target: {fileID: 1844781464160067994, guid: 309967056d3abf24d9dbdbd989802105, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6465,6 +6527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000012738080298, guid: b209c30bc3eb7884781069adc59ed447, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010793482278, guid: b209c30bc3eb7884781069adc59ed447, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6589,6 +6655,10 @@ PrefabInstance:
     - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_Name
       value: Key (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712848352521594264, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112570345908746965, guid: 28a68ad7561b2d044b4c1679d29c966f, type: 3}
       propertyPath: m_UseGravity
@@ -6823,6 +6893,10 @@ PrefabInstance:
     - target: {fileID: 1000014041143818, guid: f11886bad7ca13742ba0be955318d952, type: 3}
       propertyPath: m_Name
       value: Table (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014041143818, guid: f11886bad7ca13742ba0be955318d952, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010571225974, guid: f11886bad7ca13742ba0be955318d952, type: 3}
       propertyPath: m_LocalScale.y
@@ -7063,6 +7137,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1740712549
 MeshFilter:
@@ -7362,6 +7437,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1780134381
 MeshFilter:
@@ -7406,7 +7482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1801013754
 Transform:
   m_ObjectHideFlags: 0
@@ -7521,6 +7597,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1801013759
 MeshFilter:
@@ -7671,6 +7748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CommandCentre
       objectReference: {fileID: 0}
+    - target: {fileID: 2395878722437118475, guid: 7049538c5e87ea640a49b2d1fbc5fa64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038396279597408642, guid: 7049538c5e87ea640a49b2d1fbc5fa64, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -7765,7 +7846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1884063982
 Transform:
   m_ObjectHideFlags: 0
@@ -7864,6 +7945,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1884063986
 MeshFilter:
@@ -8152,6 +8234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lock2
       objectReference: {fileID: 0}
+    - target: {fileID: 5012598169588487989, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5087145259824037563, guid: a6c6287bb8d46b94f8f14229243251d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -46.64
@@ -8315,6 +8401,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1941179894
 MeshFilter:
@@ -8840,6 +8927,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2051783117
 MeshFilter:
@@ -9113,6 +9201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfoTableOrder
       objectReference: {fileID: 0}
+    - target: {fileID: 1844781464160067994, guid: e917f0c5638ca8a449fbcfb68f54d322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9169,6 +9261,10 @@ PrefabInstance:
     - target: {fileID: 2871813297802016785, guid: 87dd456eefe4da74ebc614857b3b99b5, type: 3}
       propertyPath: m_Name
       value: JoeJeff
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871813297802016785, guid: 87dd456eefe4da74ebc614857b3b99b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9238,6 +9334,10 @@ PrefabInstance:
     - target: {fileID: 1844781464160067994, guid: 88361679086aa4044b6d0ec9b2e883b0, type: 3}
       propertyPath: m_Name
       value: Tablet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844781464160067994, guid: 88361679086aa4044b6d0ec9b2e883b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
